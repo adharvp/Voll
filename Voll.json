@@ -1,5 +1,5 @@
 {
-  "firstLayout": "",
+  "firstLayout": "Game",
   "gdVersion": {
     "build": 287,
     "major": 5,
@@ -91,7 +91,24 @@
     "currentPlatform": "GDevelop JS platform"
   },
   "resources": {
-    "resources": []
+    "resources": [
+      {
+        "file": "assets/circle.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "circle.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "file": "assets/square.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "square.png",
+        "smoothed": true,
+        "userAdded": true
+      }
+    ]
   },
   "objects": [],
   "objectsFolderStructure": {
@@ -129,13 +146,478 @@
         "gameEditorMode": "instances-editor"
       },
       "objectsGroups": [],
-      "variables": [],
-      "instances": [],
-      "objects": [],
+      "variables": [
+        {
+          "name": "StartSpeed",
+          "type": "number",
+          "value": 256
+        },
+        {
+          "name": "MaxSpeed",
+          "type": "number",
+          "value": 640
+        },
+        {
+          "name": "SpeedGainPerSecond",
+          "type": "number",
+          "value": 6.4
+        },
+        {
+          "name": "DeathY",
+          "type": "number",
+          "value": 812
+        },
+        {
+          "name": "CameraOffsetX",
+          "type": "number",
+          "value": 256
+        },
+        {
+          "name": "Speed",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "GameOver",
+          "type": "boolean",
+          "value": false
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 64,
+          "layer": "",
+          "name": "Ball",
+          "persistentUuid": "83f18f1b-4a7c-4229-bd52-6a2239587b42",
+          "width": 64,
+          "x": 96,
+          "y": 268,
+          "zOrder": 2,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 64,
+          "layer": "",
+          "name": "TempFloor",
+          "persistentUuid": "2d9360f1-f0fa-4e40-82d3-888959d0df87",
+          "width": 12800,
+          "x": -512,
+          "y": 460,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "assetStoreId": "",
+          "adaptCollisionMaskAutomatically": true,
+          "name": "Ball",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Physics2",
+              "type": "Physics2::Physics2Behavior",
+              "bodyType": "Dynamic",
+              "bullet": true,
+              "fixedRotation": false,
+              "canSleep": true,
+              "shape": "Circle",
+              "shapeDimensionA": 0,
+              "shapeDimensionB": 0,
+              "shapeOffsetX": 0,
+              "shapeOffsetY": 0,
+              "polygonOrigin": "Center",
+              "vertices": [],
+              "density": 1,
+              "friction": 0,
+              "restitution": 0.3,
+              "linearDamping": 0,
+              "angularDamping": 0.1,
+              "gravityScale": 1,
+              "layers": 1,
+              "masks": 1
+            }
+          ],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "circle.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "adaptCollisionMaskAutomatically": true,
+          "name": "TempFloor",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "Physics2",
+              "type": "Physics2::Physics2Behavior",
+              "bodyType": "Static",
+              "bullet": false,
+              "fixedRotation": false,
+              "canSleep": true,
+              "shape": "Box",
+              "shapeDimensionA": 0,
+              "shapeDimensionB": 0,
+              "shapeOffsetX": 0,
+              "shapeOffsetY": 0,
+              "polygonOrigin": "Center",
+              "vertices": [],
+              "density": 1,
+              "friction": 0.3,
+              "restitution": 0.1,
+              "linearDamping": 0.1,
+              "angularDamping": 0.1,
+              "gravityScale": 1,
+              "layers": 1,
+              "masks": 1
+            }
+          ],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "square.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
       "objectsFolderStructure": {
-        "folderName": "__ROOT"
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "Ball"
+          },
+          {
+            "objectName": "TempFloor"
+          }
+        ]
       },
-      "events": [],
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Milestone 1: ball rolls right and speeds up, camera follows, falling = game over. Tune the scene variables (1 Unity unit = 64 px)."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "DepartScene"
+              },
+              "parameters": [
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "Speed",
+                "=",
+                "StartSpeed"
+              ]
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "SetBooleanVariable"
+              },
+              "parameters": [
+                "GameOver",
+                "False",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Ball controller: speed up over time and keep rolling right."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "GameOver",
+                "False",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "Speed",
+                "=",
+                "min(MaxSpeed, Speed + SpeedGainPerSecond * TimeDelta())"
+              ]
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "Physics2::LinearVelocityX"
+              },
+              "parameters": [
+                "Ball",
+                "Physics2",
+                "=",
+                "Speed"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Camera follow: sideways only."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "CameraX"
+              },
+              "parameters": [
+                "",
+                "=",
+                "Ball.CenterX() + CameraOffsetX",
+                "",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Game over when the ball falls below DeathY."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "GameOver",
+                "False",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "PosY"
+              },
+              "parameters": [
+                "Ball",
+                ">",
+                "DeathY"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "SetBooleanVariable"
+              },
+              "parameters": [
+                "GameOver",
+                "True",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "ChangeTimeScale"
+              },
+              "parameters": [
+                "",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "DebuggerTools::ConsoleLog"
+              },
+              "parameters": [
+                "\"Game Over!\"",
+                "\"info\"",
+                "\"\""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 109,
+            "g": 230,
+            "r": 255,
+            "textB": 0,
+            "textG": 0,
+            "textR": 0
+          },
+          "comment": "Restart with Space after dying."
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "BooleanVariable"
+              },
+              "parameters": [
+                "GameOver",
+                "True",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "inverted": false,
+                "value": "KeyFromTextJustPressed"
+              },
+              "parameters": [
+                "",
+                "\"Space\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Scene"
+              },
+              "parameters": [
+                "",
+                "\"Game\"",
+                ""
+              ]
+            }
+          ]
+        }
+      ],
       "layers": [
         {
           "ambientLightColorB": 200,
@@ -206,7 +688,17 @@
           ]
         }
       ],
-      "behaviorsSharedData": []
+      "behaviorsSharedData": [
+        {
+          "name": "Physics2",
+          "type": "Physics2::Physics2Behavior",
+          "gravityX": 0,
+          "gravityY": 9.8,
+          "worldScale": 64,
+          "scaleX": 64,
+          "scaleY": 64
+        }
+      ]
     }
   ],
   "layoutsFolderStructure": {
